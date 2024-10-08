@@ -35,15 +35,17 @@ type Lista = {
       <ul class="list-tasks">
         @for (item of listaDeItens; track $index) {
           @if (item.comprado == true) {
-            <li>{{item.compra}}</li>
-            @if (!isEditing) {
-              <button (click)="editar($index)">Editar</button>
-            } @else {
-              <input class="input-task" placeholder="Nome do item" [(ngModel)]="editCompra">
-              <button (click)="editar($index, editCompra)">Confirmar</button>
-            }
-            <button (click)="comprarItem($index)">Comprado</button>
-            <button (click)="deletarItem($index)">Deletar</button>
+            <li>
+              {{item.compra}}
+              @if (!isEditing) {
+                <button (click)="editar($index)">Editar</button>
+              } @else {
+                <input class="input-task" placeholder="Nome do item" [(ngModel)]="editCompra">
+                <button (click)="editar($index, editCompra)">Confirmar</button>
+              }
+              <button (click)="comprarItem($index)">Comprado</button>
+              <img src="trash.png" (click)="deletarItem($index)">
+            </li>
           }
         }
       </ul>

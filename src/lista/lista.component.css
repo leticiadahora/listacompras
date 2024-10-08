@@ -69,12 +69,6 @@ body{
 
 img {
     height: 25px;
-    opacity: 0;
-    transition: opacity 0.5s ease-in-out;
-}
-
-.task:hover img {
-    opacity: 1;
 }
 
 .done {
