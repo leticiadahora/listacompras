@@ -11,6 +11,7 @@ type Lista = {
   selector: 'list-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule],
+  styleUrls: [ './lista.component.css'], 
   template: `
     <div class="container">
       <input class="input-task" placeholder="Nome do item" [(ngModel)]="nomeDaCompra">
@@ -26,7 +27,7 @@ type Lista = {
               <button (click)="editar($index, editCompra)">Confirmar</button>
             }
             <button (click)="comprarItem($index)">Comprar</button>
-            <button (click)="deletarItem($index)">Deletar</button>
+            <img src="trash.png" (click)="deletarItem($index)">
           }
         }
       </ul>
