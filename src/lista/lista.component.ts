@@ -11,7 +11,7 @@ type Lista = {
   selector: 'list-root',
   standalone: true,
   imports: [RouterOutlet, FormsModule],
-  styleUrls: [ './lista.component.css'], 
+  styleUrls: ['./lista.component.css'], 
   template: `
     <div class="container">
       <input class="input-task" placeholder="Nome do item" [(ngModel)]="nomeDaCompra">
@@ -19,15 +19,17 @@ type Lista = {
       <ul class="list-tasks">
         @for (item of listaDeItens; track $index) {
           @if (item.comprado == false) {
-            <li>{{item.compra}}</li>
-            @if (!isEditing) {
-              <button (click)="editar($index)">Editar</button>
-            } @else {
-              <input class="input-task" placeholder="Nome do item" [(ngModel)]="editCompra">
-              <button (click)="editar($index, editCompra)">Confirmar</button>
-            }
-            <button (click)="comprarItem($index)">Comprar</button>
-            <img src="trash.png" (click)="deletarItem($index)">
+            <li class="item">
+              {{item.compra}}
+              @if (!isEditing) {
+                <button (click)="editar($index)">Editar</button>
+              } @else {
+                <input class="input-task" placeholder="Nome do item" [(ngModel)]="editCompra">
+                <button (click)="editar($index, editCompra)">Confirmar</button>
+              }
+              <button (click)="comprarItem($index)">Comprar</button>
+              <img src="trash.png" (click)="deletarItem($index)">
+            </li>
           }
         }
       </ul>
@@ -35,7 +37,7 @@ type Lista = {
       <ul class="list-tasks">
         @for (item of listaDeItens; track $index) {
           @if (item.comprado == true) {
-            <li>
+            <li class="item">
               {{item.compra}}
               @if (!isEditing) {
                 <button (click)="editar($index)">Editar</button>
